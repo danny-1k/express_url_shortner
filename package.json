@@ -1,0 +1,23 @@
+{
+  "name": "url_shortner",
+  "version": "1.0.0",
+  "description": "URL shortner project made with express, mongodb and ejs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danny-1k/express_url_shortner.git"
+  },
+  "author": "Daniel Ik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danny-1k/express_url_shortner/issues"
+  },
+  "homepage": "https://github.com/danny-1k/express_url_shortner#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mongoose": "^6.3.0"
+  }
+}
