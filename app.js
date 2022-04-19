@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const LinkModel = require('./models/link');
 
 
 mongoose.connect('mongodb://localhost:27017/url_shortner')
@@ -12,12 +13,18 @@ mongoose.connect('mongodb://localhost:27017/url_shortner')
 
 const app = express();
 
-app.set('view-engine','ejs');
+app.set('view engine','ejs');
+// app.set('view','views')
+app.use(express.static('static'));
 
-app.use(express.static('static'))
 
-app.listen(3000,()=>console.log('Server started, listening on port 3000.'))
+app.listen(3000,
+    ()=>console.log('Server started, listening on port 3000.')
+);
+
+
+
 
 app.get('/',(req,res)=>{
-    res.send('Index');
+    res.render('index');
 })
