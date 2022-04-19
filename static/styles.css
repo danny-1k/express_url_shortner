@@ -39,6 +39,11 @@ nav a{
     margin: 0 30px;
 
     border-radius: 15px;
+    transition: .4s ease all;
+}
+
+nav a:hover{
+    color:rgba(0,0,0,0.5);
 }
 
 h1 {
@@ -90,6 +95,14 @@ h2 {
     border:none;
     padding:10px;
     color:#fff;
+    transition: .3s ease all;
+
+}
+
+.shorten-link-button:hover{
+    background:rgba(71,152,223,.5);
+    cursor:pointer;
+
 }
 
 .white-text{
