@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head.ejs')%>
+<body>
+
+    <%- include('partials/nav.ejs')%>
+
+    <div class="container">
+
+        <div>
+
+            <table>
+                <tr>
+                    <th>URL</th>
+                    <th>Shortened</th>
+                    <th>Time created</th>
+                    <th>#clicks</th>
+                </tr>
+
+                <% for(link of links){ %>
+                    <tr>
+                        <td><a style="text-decoration:none;" href="<%=link.orignialUrl%>"><%=link.orignialUrl%></a></td>
+                        <td><a style="text-decoration:none;" href="/<%=link.generatedUrl%>"><%=link.generatedUrl%></a></td>
+                        <td><%=link.time%></td>
+                        <td><%=link.clicks%></td>
+                        
+                    </tr>
+
+                <%}%>
+
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    
+</body>
+</html>
