@@ -40,16 +40,21 @@ app.post('/',(req,res)=>{
 });
 
 
-app.get('/manage',(req,res)=>{
-    res.send('Hello world');
+app.get('/view',(req,res)=>{
+    LinkModel.find({}).then((links)=>{
+        res.render('view_links',{title:'View Links',links:links});
+    });
 });
 
-app.get('/view',(req,res)=>{
-    res.send('Hello world');
+app.get('/manage',(req,res)=>{
+    LinkModel.find({}).then((links)=>{
+        res.render('manage',{title:'Manage',links:links});
+    });
 })
 
 
 app.get('/:short',(req,res,next)=>{
+    
     LinkModel.findOne({generatedUrl:req.params.short},'orignialUrl clicks',(err,link)=>{
         if (err){
             console.log(err);
@@ -61,15 +66,16 @@ app.get('/:short',(req,res,next)=>{
             link.save();
             res.redirect(link.orignialUrl);
 
-        };
+        }else{
+            next();
+        }
 
     });
 
-    next();
 
 });
 
-app.get('/link/:short',(req,res)=>{
+app.get('/link/:short',(req,res,next)=>{
 
     LinkModel.findOne({generatedUrl:req.params.short},'orignialUrl generatedUrl time clicks',(err,link)=>{
         if (link){
@@ -83,6 +89,13 @@ app.get('/link/:short',(req,res)=>{
     });
 
 
+});
+
+
+app.get('/delete/:_id',(req,res)=>{
+    LinkModel.deleteOne({_id:req.params._id}).then(()=>{
+        res.redirect('/manage');
+    });
 });
 
 
