@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head.ejs')%>
+<body>
+
+    <%- include('partials/nav.ejs')%>
+
+    <div class="container">
+
+        <div>
+            <h2 style="color:#eeeeee">URL : <a style="color:#125ff2;text-decoration: none;" href="<%= originalUrl%>"><%= originalUrl%></a></h1>
+            <h2 style="color:#eeeeee">Short : <a style="color:#125ff2;text-decoration: none;" href="/<%= shortUrl%>"><%= shortUrl%></a></h1>
+            <h2 style="color:#eeeeee">#clicks : <a style="color:#ff6600;text-decoration: none;cursor:pointer"><%= num_clicks %></span></h1>
+
+        </div>
+
+    </div>
+    
+</body>
+</html>
