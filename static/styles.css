@@ -108,3 +108,18 @@ h2 {
 .white-text{
     color:#fff;
 }
+
+table, th, td{
+    border: 2px solid #fff;
+    border-collapse: collapse;
+    background-color:#125ff2;
+}
+
+th, td{
+    padding: 10px;
+}
+
+table a{
+    color:black;
+
+}
