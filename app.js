@@ -40,7 +40,16 @@ app.post('/',(req,res)=>{
 });
 
 
-app.get('/:short',(req,res)=>{
+app.get('/manage',(req,res)=>{
+    res.send('Hello world');
+});
+
+app.get('/view',(req,res)=>{
+    res.send('Hello world');
+})
+
+
+app.get('/:short',(req,res,next)=>{
     LinkModel.findOne({generatedUrl:req.params.short},'orignialUrl clicks',(err,link)=>{
         if (err){
             console.log(err);
@@ -56,20 +65,27 @@ app.get('/:short',(req,res)=>{
 
     });
 
+    next();
+
 });
 
 app.get('/link/:short',(req,res)=>{
 
     LinkModel.findOne({generatedUrl:req.params.short},'orignialUrl generatedUrl time clicks',(err,link)=>{
         if (link){
-            console.log(link);
+        
+            res.render('view_link',{title:`View Link : ${req.params.short}`, originalUrl:link.orignialUrl, shortUrl:link.generatedUrl, num_clicks:link.clicks});
 
-        };
+        }else{
+            res.redirect('/')
+        }
 
     });
 
+
 });
 
+
 app.use((req,res)=>{
-    res.redirect('/');
+    res.send('Not found')
 })
