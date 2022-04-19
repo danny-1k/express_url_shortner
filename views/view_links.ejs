@@ -9,27 +9,34 @@
 
         <div>
 
-            <table>
-                <tr>
-                    <th>URL</th>
-                    <th>Shortened</th>
-                    <th>Time created</th>
-                    <th>#clicks</th>
-                </tr>
+            <% if (links.length === 0){%>
+                <h1>No Links have been shortened yet :)</h1>
+            <%}else{%>
+            
 
-                <% for(link of links){ %>
+                <table>
                     <tr>
-                        <td><a style="text-decoration:none;" href="<%=link.orignialUrl%>"><%=link.orignialUrl%></a></td>
-                        <td><a style="text-decoration:none;" href="/<%=link.generatedUrl%>"><%=link.generatedUrl%></a></td>
-                        <td><%=link.time%></td>
-                        <td><%=link.clicks%></td>
-                        
+                        <th>URL</th>
+                        <th>Shortened</th>
+                        <th>Time created</th>
+                        <th>#clicks</th>
                     </tr>
 
-                <%}%>
+                    <% for(link of links){ %>
+                        <tr>
+                            <td><a style="text-decoration:none;" href="<%=link.orignialUrl%>"><%=link.orignialUrl%></a></td>
+                            <td><a style="text-decoration:none;" href="/<%=link.generatedUrl%>"><%=link.generatedUrl%></a></td>
+                            <td><%=link.time%></td>
+                            <td><%=link.clicks%></td>
+                            
+                        </tr>
 
-                </tr>
-            </table>
+                    <%}%>
+
+                    </tr>
+                </table>
+
+            <%}%>
         </div>
 
     </div>
