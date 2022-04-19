@@ -36,7 +36,7 @@ app.post('/',(req,res)=>{
 
     const new_link = new LinkModel({orignialUrl:req.body.originalurl, })
     new_link.save();
-    res.send(`added to db ${new_link.generatedUrl}`);
+    res.redirect(`/link/${new_link.generatedUrl}`);
 });
 
 
